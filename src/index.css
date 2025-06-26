@@ -442,3 +442,42 @@ nav {
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
+
+/* Styles spécifiques pour les images du robot */
+.robot-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.robot-image-container img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  border-radius: 0.75rem;
+}
+
+/* Assurer que l'aspect ratio fonctionne */
+.aspect-square {
+  aspect-ratio: 1 / 1 !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Améliorer l'affichage des images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Grille des images responsive */
+@media (max-width: 768px) {
+  .robot-image-container {
+    min-height: 150px;
+  }
+}

@@ -197,19 +197,25 @@ const RobotProjectSite: React.FC = () => {
               <h3 className="text-3xl font-bold mb-8">Images du Robot</h3>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { id: 1, title: "Vue d'ensemble", color: "from-blue-500 to-purple-600" },
-                  { id: 2, title: "Capteurs avant", color: "from-green-500 to-teal-600" },
-                  { id: 3, title: "Architecture", color: "from-orange-500 to-red-600" },
-                  { id: 4, title: "Tests mobile", color: "from-purple-500 to-pink-600" }
+                  { id: 1, title: "Vue d'ensemble", image: "/images/robot-vue-ensemble.jpg" },
+                  { id: 2, title: "Capteurs avant", image: "/images/robot-capteurs.jpg" },
+                  { id: 3, title: "Architecture", image: "/images/robot-architecture.jpg" },
+                  { id: 4, title: "Tests mobile", image: "/images/robot-test.jpg" }
                 ].map((item) => (
                   <div
                     key={item.id}
-                    className={`aspect-square bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center hover:scale-105 transition-all duration-300 cursor-pointer group relative overflow-hidden`}
+                    className="robot-image-container group hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
                   >
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300" />
-                    <div className="text-center z-10">
-                      <Camera className="w-8 h-8 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                      <p className="text-sm font-medium">{item.title}</p>
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
+                      <p className="text-white font-medium text-sm bg-black/50 rounded px-2 py-1 backdrop-blur-sm">
+                        {item.title}
+                      </p>
                     </div>
                   </div>
                 ))}
