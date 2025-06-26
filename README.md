@@ -1,51 +1,29 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# 🤖 Robot STM32 avec micro-ROS
+- Un robot autonome basé sur STM32 avec communication ROS2, capable de navigation autonome, contrôle manuel et suivi de cible par caméra.
+## Fonctionnalités
+### Modes de fonctionnement
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Mode Manuel : Contrôle direct via commandes ROS
+- Mode Aléatoire : Navigation autonome avec évitement d'obstacles
+- Mode Suivi Caméra : Suivi de cible détectée par caméra
 
-## Available Scripts
+### Capteurs embarqués
 
-In the project directory, you can run:
+- Capteur VL53L0X : Mesure de distance laser (obstacle arrière)
+- Capteurs IR : Détection d'obstacles frontaux (gauche/droite)
+- Encodeurs : Mesure de vitesse des moteurs
+- Écran LCD Grove : Affichage du mode actuel
 
-### `npm start`
+## 📡 Communication ROS2
+### Topics de commande
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- /command/mode : Changement de mode (0=Manuel, 1=Aléatoire, 2=Caméra)
+- /command/move : Commandes de mouvement (f=avancer, b=reculer, l=gauche, r=droite, s=stop)
+- /camera/src_xy : Coordonnées de la cible (format x,y)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Topics de données
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-=======
-# PROJET_ROBOT
-Programmer un robot
->>>>>>> 5d503f7a3dcf9a5cb11ddb18724679986ab48876
+- /sensor/motor_speed : Vitesse et consigne des moteurs
+- /sensor/receive_obstacle : État des détecteurs d'obstacles
+- /diagnostic/sensor_data : Données brutes des capteurs
+- /diagnostic/analysis : Analyses et alertes
