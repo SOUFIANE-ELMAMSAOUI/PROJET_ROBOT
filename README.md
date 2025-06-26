@@ -27,3 +27,33 @@
 - /sensor/receive_obstacle : État des détecteurs d'obstacles
 - /diagnostic/sensor_data : Données brutes des capteurs
 - /diagnostic/analysis : Analyses et alertes
+
+## ⚙️ Configuration technique
+### Paramètres capteurs
+- #define IR_THRESHOLD 2000      // Seuil détection IR
+- #define VL53_THRESHOLD 200     // Seuil distance VL53 (mm)
+- #define w_cam 260              // Largeur image caméra
+- #define h_cam 150              // Hauteur image caméra
+ 
+### Asservissement moteurs
+- Période d'échantillonnage : 5ms
+- Contrôleur PI séparé pour chaque moteur
+- Consigne par défaut : 500
+
+### ROS Domain
+
+- Domain ID : 11 (configurable via ROS_DOMAIN_ID)
+
+## 🔧 Architecture logicielle
+### Tâches FreeRTOS
+
+- robot_control_task : Logique principale de contrôle
+- microros_task : Communication ROS2
+- displayTask : Gestion de l'affichage LCD
+- sensor_data_collector_task : Collecte des données capteurs
+- data_analyzer_task : Analyse et diagnostic
+
+### Synchronisation
+
+- Sémaphores binaires pour protection des données partagées
+- Priorités configurées pour temps réel
