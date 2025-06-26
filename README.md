@@ -57,3 +57,12 @@
 
 - Sémaphores binaires pour protection des données partagées
 - Priorités configurées pour temps réel
+
+## Affichage série
+- Debug disponible via UART2 (115200 bauds) pour informations détaillées.
+  
+## 🚨 Sécurité
+- Arrêt d'urgence automatique en cas d'obstacle (mode manuel)
+- Timeouts sur les communications
+- Surveillance de l'intégrité des données capteurs
+- Protection mémoire avec allocation dynamique contrôlée
